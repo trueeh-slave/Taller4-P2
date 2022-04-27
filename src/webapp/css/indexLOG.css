@@ -72,7 +72,7 @@ Logo text next to the logo image
     padding: 0 40px;
     line-height: 80px;
     position: relative;
-    left: -120px;
+    left: -210px;
 }
 
 /**
@@ -83,7 +83,7 @@ Navbar avatar style
     height: 40px;
     width: 40px;
     position: relative;
-    left: 820px;
+    left: 760px;
     top: 10px;
 }
 
@@ -101,7 +101,7 @@ Gives style to all menu items
 */
 .nav-menu-item {
     font-size: 18px;
-    margin: 0 10px;
+    margin: 0 5px;
     line-height: 80px;
     text-transform: none;
     width: max-content;

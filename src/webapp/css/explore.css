@@ -16,14 +16,6 @@ body {
     background: #222228;
 }
 
-/*Nav logo style*/
-.favicon {
-    margin-top: 10px;
-    height: 50px;
-    width: 50px;
-    position: relative;
-    left: -35px;
-}
 
 /*Styles applied to the header*/
 .header {
@@ -45,6 +37,14 @@ body {
     justify-content: space-between;
     margin: 0 auto;
 
+}
+
+.favicon {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    left: 50px;
 }
 
 /*Styles applied to texts with links*/
@@ -217,3 +217,4 @@ body {
 .body_card_back input:hover {
     box-shadow: 1px 1px 30px -5px #449de6;
 }
+
