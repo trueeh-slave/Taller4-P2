@@ -21,7 +21,7 @@ import static co.edu.unbosque.services.NftService.createPiece;
 import static co.edu.unbosque.services.NftService.getPieces;
 
 
-@Path("/pieces")
+@Path("users/{username}/pieces")
 public class NftResource {
     @Context
     ServletContext context;
@@ -72,7 +72,7 @@ public class NftResource {
     }
 
     @POST
-    @Path("/form")
+    @Path("/pieces/form/post")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response createForm(@FormParam("title") String title, @FormParam("author") String author, @FormParam("path") String path, @FormParam("fcoins") String fcoins){

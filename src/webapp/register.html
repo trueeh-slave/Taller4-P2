@@ -54,12 +54,13 @@
             </div>
         </form>
     <script>
-        formElem.onsubmit = async (e) => {
+        var x = document.getElementById("register-form")
+        x.onsubmit = async (e) => {
           e.preventDefault()
 
-          let response = await fetch('users/form', {
+          let response = await fetch('users/form/pieces/pieces/form/', {
               method: 'POST',
-              body: new FormData(formElem)
+              body: new FormData(x)
           });
 
           let result = await response.json()
