@@ -2,7 +2,7 @@ package co.edu.unbosque.dto;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class Colections {
+public class Collections {
     @CsvBindByName
     private String name;
 
@@ -12,7 +12,7 @@ public class Colections {
    @CsvBindByName
     private String cantidad;
 
-    public Colections(String name, String categoria, String cantidad) {
+    public Collections(String name, String categoria, String cantidad) {
         this.name = name;
         this.categoria = categoria;
         this.cantidad = cantidad;
@@ -44,7 +44,7 @@ public class Colections {
 
     @Override
     public String toString() {
-        return "Colections{" +
+        return "Collections{" +
                 "name='" + name + '\'' +
                 ", categoria='" + categoria + '\'' +
                 ", cantidad='" + cantidad + '\'' +

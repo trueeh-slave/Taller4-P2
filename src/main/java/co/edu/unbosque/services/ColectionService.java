@@ -1,34 +1,35 @@
 package co.edu.unbosque.services;
 
-import co.edu.unbosque.dto.Colections;
+import co.edu.unbosque.dto.Collections;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.bean.HeaderColumnNameMappingStrategy;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class ColectionService {
 
-    public static List<Colections> getColections() throws IOException {
-        List<Colections> colections;
+    public static List<Collections> getCollections() throws IOException {
+        List<Collections> colections;
         try(var inputStream = ColectionService.class.getClassLoader().getResourceAsStream("colections.csv")){
-            HeaderColumnNameMappingStrategy<Colections> strategy = new HeaderColumnNameMappingStrategy<>();
-            strategy.setType(Colections.class);
+            HeaderColumnNameMappingStrategy<Collections> strategy = new HeaderColumnNameMappingStrategy<>();
+            strategy.setType(Collections.class);
 
             try(var bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))){
-                CsvToBean<Colections> csvToBean = new CsvToBeanBuilder<Colections>(bufferedReader).withType(Colections.class).withMappingStrategy(strategy).withIgnoreLeadingWhiteSpace(true).build();
+                CsvToBean<Collections> csvToBean = new CsvToBeanBuilder<Collections>(bufferedReader).withType(Collections.class).withMappingStrategy(strategy).withIgnoreLeadingWhiteSpace(true).build();
                 colections = csvToBean.parse();
             }
         }
         return colections;
     }
 
-    public static  Colections createColection(String name, String category, String quantity){
-
+    public static Collections createColection(String name, String category, String quantity, String path) throws IOException{
+        String newLine = "\n"+ name + "," + category + "," + quantity;
+        var outputStream  = new FileOutputStream(path + "WEB-INF/classes/"+ "collections", true);
+        outputStream.write(newLine.getBytes());
+        outputStream.close();
+        return new Collections(name,category,quantity);
     }
 }
